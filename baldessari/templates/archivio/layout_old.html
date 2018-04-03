@@ -1,0 +1,117 @@
+{% extends "archivio/base.html" %}
+
+{% block head %}
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+	{% load static %}
+	{% get_static_prefix as STATIC_PREFIX %}
+	<!-- Styles -->
+	<!-- <link rel="stylesheet" href="{{ STATIC_PREFIX }}styles/general_style.css"> -->
+	<link href="{{ STATIC_PREFIX }}styles/bootstrap.css" rel="stylesheet">
+	<link href="{{ STATIC_PREFIX }}styles/bootstrap-responsive.css" rel="stylesheet">
+	<link href="{{ STATIC_PREFIX }}styles/archivio.css" rel="stylesheet">
+	
+	<!-- Libraries -->
+	<script src="{{ STATIC_PREFIX }}libs/jquery-1.7.2.min.js"></script>
+	<script src="{{ STATIC_PREFIX }}libs/d3.v2.js"></script>
+	
+	
+	<!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+	{% get_static_prefix as STATIC_PREFIX %}
+		<!-- drawing the header -->
+		{%block header %}
+		<div class="navbar navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container">
+	          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </a>
+	          <a class="brand" href="#"><div id="pretitle">L'archivio digitale di </div><div id="titlename">Luciano<br>Baldessari</div></a>
+	          <div class="nav-collapse">
+	            <ul class="nav" id="menu">
+	              <li><a href="{% url archivio.views.galleria_progetti %}">Home</a></li>
+	              
+	              <li class="{% block active_biografia %}{% endblock %}" id="biografiamenu">
+					<a href="{% url archivio.views.biografia %}" name="biografia">Biografia</a>
+				  </li>
+	              <li class="{% block active_opere %}{% endblock %}" id="operemenu">
+					<a href="{% url archivio.views.galleria_progetti %}" name="opere">Opere</a>
+				  </li>
+				  <li class="{% block active_bibliografia %}{% endblock %}" id="bibliografiamenu">
+					<a href="{% url archivio.views.bibliografia2 %}" name="bibliografia">Bibliografia</a>
+				  </li>
+				  <li class="{% block active_temi %}{% endblock %}" id="temimenu">
+					<a href="{% url archivio.views.elencoTemi %}" name="percorsi_tematici">Percorsi tematici</a>
+				  </li>
+				  <li class="{% block active_museovirtuale %}{% endblock %}" id="museovirtualemenu">
+					<a href="{% url archivio.views.museo_virtuale %}" name="museo virtuale">Museo Virtuale</a>
+				  </li>
+				  <li class="{% block active_contatti %}{% endblock %}" id="contattimenu">
+					<a href="{% url archivio.views.contatti %}" name="contatti">Contatti</a>
+				  </li>
+	            </ul>
+	          </div><!--/.nav-collapse -->
+	          
+	          <div id="head-logos">
+	          	
+	          	<div id="foot-partner">
+				<h2>Partners</h2>
+				<a href="http://www.polimi.it/"><img src="{{ STATIC_PREFIX }}img_interface/Footer01_Poli.png"/></a>
+				<a id="casva" href="http://www.comune.milano.it/dseserver/WebCity/documenti.nsf/weball/84EE6410B552312EC1256E21003807A1?opendocument">CASVA</a>
+	          	<a href="http://www.mart.trento.it/"><img src="{{ STATIC_PREFIX }}img_interface/Header03_Mart.png"/></a>
+			</div>
+	          	<!-- <a href="http://www.polimi.it/"><img src="{{ STATIC_PREFIX }}img_interface/Header01_Poli.png"/></a>
+	          	<a href="http://www.comune.milano.it/dseserver/WebCity/documenti.nsf/weball/84EE6410B552312EC1256E21003807A1?opendocument"><img src="{{ STATIC_PREFIX }}img_interface/Header02_Casva.png"/></a>
+	          	<a href="http://www.mart.trento.it/"><img src="{{ STATIC_PREFIX }}img_interface/Header03_Mart.png"/></a> -->
+	          	
+	          	
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+		{% endblock %}	
+			
+		<div class = "container" id="content">
+			<div id="upper-bar">
+				{% block upper-bar %}
+				{% endblock %}
+			</div>
+			
+			<div class="hero-unit">
+			{% block content %}
+			{% endblock %}
+			</div>
+			
+			
+			<footer>
+			<div id="foot-logos" class="container">
+				<a href="http://www.dipartimentodesign.polimi.it/"><img src="{{ STATIC_PREFIX }}img_interface/dip_logo.png"/></a>
+	          	<a href="http://www.densitydesign.org/"><img src="{{ STATIC_PREFIX }}img_interface/Footer02_Density.png"/></a>
+	          	<a href="http://designforculturalheritage.wordpress.com/design-dei-beni-culturali-2/musei-e-archivi/"><img id="lada" src="{{ STATIC_PREFIX }}img_interface/Footer03_LADA.png"/></a>
+			</div>
+			
+			
+			</footer>
+		</div>
+			
+		<!-- {% load static %}
+		{% get_static_prefix as STATIC_PREFIX %}
+		<script type="text/javascript" src="{{ STATIC_PREFIX }}scripts/menu_animation.js"></script> -->
+		
+		
+{% endblock %}
+
+
+
