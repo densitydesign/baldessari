@@ -1,2 +1,6 @@
+BeautifulSoup==3.2.1
 Django==1.4
-wsgiref==0.1.2
+Pillow==5.0.0
+PyRSS2Gen==1.0.0
+South==0.7.6
+zope.interface==3.5.1
